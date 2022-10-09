@@ -75,11 +75,11 @@ for iw = 1: length(vtW)
     % Potência recebida com canal completo
     plot(vtDistLogEst,vtPrxEst); hold all;
     % Potência recebida com path loss
-    plot(vtDistLogEst,txPower-vtPathLossEst,'linewidth', 2)
+    plot(vtDistLogEst,txPower-vtPathLossEst)
     % Potência recebida com path loss e shadowing
-    plot(vtDistLogEst,txPower-vtPathLossEst+vtShadCorrEst,'linewidth', 2)
+    plot(vtDistLogEst,txPower-vtPathLossEst+vtShadCorrEst)
     %
-    title(['Potência recebida em RX x log da distância (W = ' num2str(dW) ')'])
+    title(['Potência recebida no RX x log da distância (W = ' num2str(dW) ')'])
     xlabel('log_{10}(d)');
     ylabel('Potência [dBm]');
     legend('PRX canal completo', 'PRX (apenas perda de percurso)', 'PRX (perda de percurso e sombreamento)');
