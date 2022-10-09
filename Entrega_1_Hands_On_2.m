@@ -51,8 +51,8 @@ for iw = 1: length(vtW)
     % Expoente de perda de percurso estimado
     dNEst = -dCoefReta(1)/10;
     %
-    disp(['Valor estimado dos parâmetros em larga escala (W = ' num2str(dW) '):']);
-    disp(['Expoente estimado de perda de percurso n = ' num2str(dNEst)]);
+    disp(['Valor estimado dos parâmetros para W = ' num2str(dW) ':']);
+    disp(['Expoente estimado de perda de percurso n = ' num2str(round(dNEst, 2))]);
     %
     % Perda de percurso estimada para os pontos de medição
     vtPathLossEst = polyval(dCoefReta,vtDistLogEst);  
@@ -65,8 +65,9 @@ for iw = 1: length(vtW)
     vtPathLossEst = - vtPathLossEst;
     vtPrxEst = txPower - vtPathLossEst + vtShadCorrEst + vtDesPequeEst;
     %
-    disp(['Desvio padrão estimado do sombreamento = ' num2str(dStdShadEst)]);
-    disp(['Média estimada do sombreamento = ' num2str(dStdMeanShadEst)]);
+    disp(['Desvio padrão estimado do sombreamento = ' num2str(round(dStdShadEst, 2))]);
+    disp(['Média estimada do sombreamento = ' num2str(round(dStdMeanShadEst, 2))]);
+    disp(' ')
     %
     % Plot do desvanecimento
     figure;
@@ -78,8 +79,8 @@ for iw = 1: length(vtW)
     % Potência recebida com path loss e shadowing
     plot(vtDistLogEst,txPower-vtPathLossEst+vtShadCorrEst,'linewidth', 2)
     %
-    title(['Potência recebida em RX x log da distância (W = ' num2str(dW) '):'])
+    title(['Potência recebida em RX x log da distância (W = ' num2str(dW) ')'])
     xlabel('log_{10}(d)');
     ylabel('Potência [dBm]');
-    legend('PRX Canal Completo', 'PRX (apens com perda de percurso)', 'PRX (com perda de percurso e sombreamento)');
+    legend('PRX canal completo', 'PRX (apenas perda de percurso)', 'PRX (perda de percurso e sombreamento)');
 end
