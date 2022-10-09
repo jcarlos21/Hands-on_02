@@ -30,7 +30,7 @@ for iw = 1: length(vtW)
     end
     %
     % Armazenamento das informações do vetor de desvanecimento em pequena escala
-    dlmwrite([chFileName '.txt'], [vtDesPequeEst'], 'delimiter', '\t')
+    dlmwrite([chFileName '.txt'], vtDesPequeEst', 'delimiter', '\t')
     % writematrix([chFileName '.txt'], [vtDesPequeEst'], 'delimiter', '\t')
     %
     % Cálculo da envoltória normalizada (para efeitos de cálculo do fading)
